@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- do not ever, ever put your scripts here -->
+  </head>
+
+  <body>
+    <header>
+      <h1>Demo</h1>
+      <nav>
+        <div>
+          <ul>
+            <li><a href="#">page 1</a></li>
+            <li><a href="#">page 2</a></li>
+            <li><a href="#">page 3</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <form>
+        <label for="searchbox">starwars/people/</label>
+        <input type="text" name="people" id="people" />
+        <button type="button" id="btn-people">search</button>
+      </form>
+
+      <form>
+        <label for="searchbox">starwars/planets/</label>
+        <input type="text" name="planets" id="planets" />
+        <button type="button" id="btn-planets">search</button>
+      </form>
+
+      <form>
+        <label for="searchbox">starwars/starships/</label>
+        <input type="text" name="starships" id="starships" />
+        <button type="button" id="btn-starships">search</button>
+      </form>
+
+      <textarea name="response" id="response" cols="30" rows="10"></textarea>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
+
+
+//event bubbling
+//*
+when I click on button, it's also clicking on form, which is cliking on main, which is cl
+wherever you click on the screen, it will ripple out to the origin of the document
+
+event capturing
+element has an event raised that an element does not know how to handle, but if the parent does know how to handle it
+- in a table, if we have a 100 buttons, we can have a container of button. Each button may not know its own click event.
+*/
