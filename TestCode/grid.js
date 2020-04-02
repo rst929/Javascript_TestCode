@@ -63,16 +63,15 @@ class grid {
         }
     }
 
-    
     undoDrawBox() {
-        let lastUsedColorTemp = undoCache[1];
-        let lastUsedBoxesTemp = undoCache[0];
-        console.log(lastUsedColorTemp);
-        console.log(lastUsedBoxesTemp);
+        let lastUsedColorT = Array.from(undoCache.pop());
+        let lastUsedBoxesT = Array.from(undoCache.pop());
+        console.log(lastUsedBoxesT.length);
         let tempBoxLocation;
-        for(let i = 0; i < lastUsedBoxesTemp.length; i++) {
-            tempBoxLocation = lastUsedBoxesTemp[i];
-            if(lastUsedColorTemp == "#ZZZZZZ") {
+        for(let i = 0; i < lastUsedBoxesT.length; i++) {
+            tempBoxLocation = lastUsedBoxesT[i];
+//            console.log(tempBoxLocation[0], tempBoxLocation[1]);
+            if(lastUsedColor == "#ZZZZZZ") {
                 this.ctx.clearRect(tempBoxLocation[0]*this.scale, tempBoxLocation[1]*this.scale, this.scale, this.scale);
             } else {
                 this.ctx.fillStyle = "#BBBBBB";
@@ -123,7 +122,8 @@ document.addEventListener("click", function(e) {
     grid1.drawBoxAtPosition(mouseX - 15, mouseY -115, userColor);
     mouseState = "up";
     //push the most recent unit batch
-    undoCache.push(lastUsedBoxes);
+    undoCache.push(Array.from(lastUsedBoxes));
+    lastUsedBoxes.splice(0, lastUsedBoxes.length);
     undoCache.push(lastUsedColor);
 });
 
@@ -138,3 +138,6 @@ function mouseUp(e) {
 function undoLast() {
     grid1.undoDrawBox();
 }
+
+
+//add 
